@@ -15,6 +15,7 @@ import { AddValuePipe } from './add-value.pipe';
 import { FilterComponent } from './filter/filter.component';
 import { MatCardModule } from "@angular/material/card";
 import { HomeworkComponent } from './homework/homework.component';
+import { HyphenStringPipe } from './hyphen-string.pipe';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { HomeworkComponent } from './homework/homework.component';
     AddValuePipe,
     FilterComponent,
     HomeworkComponent,
+    HyphenStringPipe,
   ],
   imports: [
     BrowserModule,

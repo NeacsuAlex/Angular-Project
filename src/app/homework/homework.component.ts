@@ -14,6 +14,7 @@ export class HomeworkComponent implements OnInit {
   colorText: string = "Content color change"
   selectedColor: string = ""
   backgroundColor: string = ""
+  hyphenText:string="Hyphen"
   
   ngOnInit(): void {
   }
