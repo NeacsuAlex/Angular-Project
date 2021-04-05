@@ -16,6 +16,7 @@ import { FilterComponent } from './filter/filter.component';
 import { MatCardModule } from "@angular/material/card";
 import { HomeworkComponent } from './homework/homework.component';
 import { HyphenStringPipe } from './hyphen-string.pipe';
+import { HighlightBoldDirective } from './highlight-bold.directive';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HyphenStringPipe } from './hyphen-string.pipe';
     FilterComponent,
     HomeworkComponent,
     HyphenStringPipe,
+    HighlightBoldDirective,
   ],
   imports: [
     BrowserModule,
