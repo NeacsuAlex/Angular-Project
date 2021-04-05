@@ -23,21 +23,6 @@
     This paragraph is in the DOM.
   </p>
 
-  
-  <!-- Homework 1 -->
-<button mat-icon-button (click)="setBackground()">
-    <mat-icon>add_circle</mat-icon>
-</button>
-<mat-form-field>
-    <input [(ngModel)]="selectedColor" matInput placeholder="Write color">
-</mat-form-field>
-<h1 [style.background]=backgroundColor>{{colorText}}</h1>
-
-<p>Date list:</p>
-    <div *ngFor="let date of dates;let even=even">
-        <p *ngIf="even">{{date|date:'longDate'}}</p>
-    </div>
-
 <mat-card class="add-note-card">
 <button mat-icon-button><mat-icon>add</mat-icon></button>
 </mat-card>

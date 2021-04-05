@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { AddValuePipe } from './add-value.pipe';
 import { FilterComponent } from './filter/filter.component';
 import { MatCardModule } from "@angular/material/card";
+import { HomeworkComponent } from './homework/homework.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatCardModule } from "@angular/material/card";
     ToolsComponent,
     AddValuePipe,
     FilterComponent,
+    HomeworkComponent,
   ],
   imports: [
     BrowserModule,
