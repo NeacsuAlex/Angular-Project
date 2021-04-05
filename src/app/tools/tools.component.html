@@ -1,0 +1,44 @@
+
+<!-- Workshop 4 -->
+<button mat-icon-button (click)="setTitle()">
+    <mat-icon>add</mat-icon>
+</button>
+<mat-form-field>
+    <input [(ngModel)]="noteContent" matInput placeholder="Add Note">
+
+<!-- Workshop 5 -->
+</mat-form-field>
+<p>Titlul este {{title|uppercase}}</p>
+<p [style.color]=titleColor>{{title}}</p>
+<p>Note content is: {{noteContent}}</p>
+<p>Current date is: {{currentDate|date:'shortDate'}}</p>
+<p>Number is {{15|addValue:23}}</p>
+
+<p *ngIf="true">
+    Expression is true and ngIf is true.
+    This paragraph is in the DOM.
+  </p>
+  <p *ngIf="show">
+    Expression is true and ngIf is true.
+    This paragraph is in the DOM.
+  </p>
+
+  
+  <!-- Homework 1 -->
+<button mat-icon-button (click)="setBackground()">
+    <mat-icon>add_circle</mat-icon>
+</button>
+<mat-form-field>
+    <input [(ngModel)]="selectedColor" matInput placeholder="Write color">
+</mat-form-field>
+<h1 [style.background]=backgroundColor>{{colorText}}</h1>
+
+<p>Date list:</p>
+    <div *ngFor="let date of dates;let even=even">
+        <p *ngIf="even">{{date|date:'longDate'}}</p>
+    </div>
+
+<mat-card class="add-note-card">
+<button mat-icon-button><mat-icon>add</mat-icon></button>
+</mat-card>
+ 
