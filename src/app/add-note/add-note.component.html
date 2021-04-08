@@ -1,0 +1,16 @@
+<h1>Add a note </h1>
+<div class="add-note-form">
+<form>
+    <mat-form-field>
+    <input
+        matInput
+        name="inputNote"
+        [(ngModel)]="noteTitle"
+         />
+    </mat-form-field>
+</form>
+<mat-form-field>
+    <textarea matInput name="inputNote" [(ngModel)]="noteDescription"></textarea>
+</mat-form-field>
+</div>
+<button mat-button (click)="addNote()">Add</button>

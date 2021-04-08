@@ -17,7 +17,9 @@ import { MatCardModule } from "@angular/material/card";
 import { HomeworkComponent } from './homework/homework.component';
 import { HyphenStringPipe } from './hyphen-string.pipe';
 import { HighlightBoldDirective } from './highlight-bold.directive';
-
+import { RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { HighlightBoldDirective } from './highlight-bold.directive';
     HomeworkComponent,
     HyphenStringPipe,
     HighlightBoldDirective,
+    HomeComponent,
+    AddNoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import { HighlightBoldDirective } from './highlight-bold.directive';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

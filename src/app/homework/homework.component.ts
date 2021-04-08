@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeworkComponent implements OnInit {
 
-  constructor() { }
-
   dates:Date[]=[new Date("2010-01-20"),new Date("2010-01-21"),new Date("2010-01-22"),new Date("2010-01-23"),new Date("2010-01-24"),new Date("2010-01-25")]
 
   colorText: string = "Content color change"
@@ -16,6 +14,8 @@ export class HomeworkComponent implements OnInit {
   backgroundColor: string = ""
   hyphenText:string="Hyphen"
   
+  constructor() { }
+
   ngOnInit(): void {
   }
 
