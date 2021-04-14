@@ -1,0 +1,32 @@
+.note-form {
+    display: flex;
+    flex-direction: row;
+    .mat-card-form{
+        margin:10px;
+    }
+}
+
+.mat-card-header{
+   margin-left: 0;
+   flex-shrink: 0;
+   margin-bottom: 10px;
+}
+
+.mat-card-content{
+    font-size: 12px;
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.mat-card{
+    flex-direction: column;
+    background: #ea71ff;
+    color: white;
+}
+
+.mat-card-footer{
+    .note-buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+}

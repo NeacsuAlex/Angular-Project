@@ -1,12 +1,11 @@
+<!-- 
 
-<!-- Workshop 4 -->
 <button mat-icon-button (click)="setTitle()">
     <mat-icon>add</mat-icon>
 </button>
 <mat-form-field>
     <input [(ngModel)]="noteContent" matInput placeholder="Add Note">
 
-<!-- Workshop 5 -->
 </mat-form-field>
 <p>Titlul este {{title|uppercase}}</p>
 <p [style.color]=titleColor>{{title}}</p>
@@ -22,8 +21,10 @@
     Expression is true and ngIf is true.
     This paragraph is in the DOM.
   </p>
-
+ -->
+<div class="add-note">
 <mat-card class="add-note-card">
 <button mat-icon-button><mat-icon>add</mat-icon></button>
 </mat-card>
+</div>
  

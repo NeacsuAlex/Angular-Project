@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-homework',
@@ -13,10 +14,19 @@ export class HomeworkComponent implements OnInit {
   selectedColor: string = ""
   backgroundColor: string = ""
   hyphenText:string="Hyphen"
+
+  id:number;
   
-  constructor() { }
+  constructor(
+    private _router:Router,
+    private _activatedRoute:ActivatedRoute  
+  ) { }
 
   ngOnInit(): void {
+    this._activatedRoute.params.subscribe(parameter=>{
+      this.id=parameter.id
+      console.log(parameter)
+    })
   }
 
   setBackground() {
