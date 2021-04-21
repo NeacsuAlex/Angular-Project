@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from '../models/category';
+import { Note } from '../note/note.component';
+import { FiltrerService } from '../services/filtrer.service';
+import { NoteService } from '../services/note.service';
 
 @Component({
   selector: 'app-add-note',
@@ -10,16 +14,20 @@ export class AddNoteComponent implements OnInit {
 
   noteTitle:string
   noteDescription:string
-  
-  constructor(private_router:Router, private _activatedRouter:ActivatedRoute) { }
+  selectedCategory: string;
+
+  categories: Category[];
+
+  constructor(private noteService:NoteService, private filtrerService:FiltrerService) { }
 
   ngOnInit(): void {
+    this.categories=this.filtrerService.geCategories()
   }
 
   addNote():void
   {
-    alert(this.noteTitle)
-    alert(this.noteDescription)
+    const note:Note={id:"2",title:this.noteTitle,description:this.noteDescription,category:this.selectedCategory};
+    this.noteService.addNote(note);
   }
 
 }

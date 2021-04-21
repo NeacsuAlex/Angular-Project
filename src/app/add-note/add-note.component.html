@@ -12,5 +12,13 @@
 <mat-form-field>
     <textarea matInput name="inputNote" [(ngModel)]="noteDescription"></textarea>
 </mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <select matNativeControl [(ngModel)]="selectedCategory" name="category">
+      <option *ngFor="let category of categories" [value]="category.name">
+        {{category.name}}
+      </option>
+    </select>
+  </mat-form-field>
 </div>
-<button mat-button (click)="addNote()">Add</button>
+<button mat-button (click)="addNote()" routerLink="">Add</button>

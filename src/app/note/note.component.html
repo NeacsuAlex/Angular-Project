@@ -1,10 +1,11 @@
 <div class="note-form">
 <mat-card class="mat-card-form" *ngFor="let note of notes">
     <mat-card-header>
-        {{note.title}}
+        <h>{{note.title}}</h>
     </mat-card-header>
     <mat-card-content>
-        {{note.description}}
+       <p> {{note.description}}</p>
+       <p>Category: {{note.category}}</p>
     </mat-card-content>
     <mat-card-footer>
         <div class="note-buttons">

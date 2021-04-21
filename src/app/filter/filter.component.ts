@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../models/category';
+import { FiltrerService } from '../services/filtrer.service';
 
 @Component({
   selector: 'app-filter',
@@ -8,10 +9,12 @@ import { Category } from '../models/category';
 })
 export class FilterComponent implements OnInit {
 
-  categories: Category[] = [{ name: "To do", id: "1" }, { name: "Done", id: "2" }, { name: "Doing", id: "3" }]
-  constructor() { }
+  categories: Category[];
+  
+  constructor(private filtrerService:FiltrerService) { }
 
   ngOnInit(): void {
+    this.categories=this.filtrerService.geCategories();
   }
 
 }
