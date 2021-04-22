@@ -13,4 +13,8 @@ export class FiltrerService {
   geCategories() {
     return this.categories;
   }
+
+  getCategoryById(id:String):Category{
+    return this.categories.find((category)=>category.id==id);
+  }
 }

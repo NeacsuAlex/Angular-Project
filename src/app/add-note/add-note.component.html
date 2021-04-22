@@ -15,7 +15,7 @@
 <mat-form-field appearance="fill">
     <mat-label>Category</mat-label>
     <select matNativeControl [(ngModel)]="selectedCategory" name="category">
-      <option *ngFor="let category of categories" [value]="category.name">
+      <option *ngFor="let category of categories" [value]="category.id">
         {{category.name}}
       </option>
     </select>

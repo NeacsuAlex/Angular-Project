@@ -8,10 +8,17 @@ import { NoteService } from '../services/note.service';
 })
 export class HomeComponent implements OnInit {
 
+  categoryId: string; 
+
   constructor(private noteService:NoteService) { }
 
   ngOnInit(): void {
     this.noteService.serviceCall();
+  }
+
+  receiveCategory(categId: string) {
+    this.categoryId = categId;
+    //alert(this.categoryId)
   }
 
 }

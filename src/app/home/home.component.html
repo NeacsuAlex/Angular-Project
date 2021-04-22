@@ -1,5 +1,5 @@
-<app-filter></app-filter>
+<app-filter (emitSelectedFilter)="receiveCategory($event)"></app-filter>
 <div class="note-cards">
-<app-note></app-note>
+<app-note [selectedCategory]="categoryId"></app-note>
 <app-tools></app-tools>
 </div>

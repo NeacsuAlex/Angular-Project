@@ -21,4 +21,9 @@ export class NoteService {
   addNote(note:Note){
     this.notes.push(note);
   }
+
+  getFilteredNotes(filteredID:string):Note[]
+  {
+    return this.notes.filter((note)=>note.category==filteredID);
+  }
 }

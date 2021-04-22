@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NoteService } from '../services/note.service';
 
 @Component({
@@ -10,13 +10,19 @@ import { NoteService } from '../services/note.service';
 export class NoteComponent implements OnInit {  
  
   notes:Note[];
+  @Input() selectedCategory:string;
 
   constructor(private noteService:NoteService) {
    }
 
   ngOnInit(): void {
     this.notes=this.noteService.getNotes();
-  } 
+  }
+  
+  ngOnChanges():void{
+    //alert(this.selectedCategory);
+    this.notes=this.noteService.getFilteredNotes(this.selectedCategory);
+  }
 }
 
 export interface Note {
