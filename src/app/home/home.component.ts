@@ -9,6 +9,7 @@ import { NoteService } from '../services/note.service';
 export class HomeComponent implements OnInit {
 
   categoryId: string; 
+  keyWord:string;
 
   constructor(private noteService:NoteService) { }
 
@@ -19,6 +20,10 @@ export class HomeComponent implements OnInit {
   receiveCategory(categId: string) {
     this.categoryId = categId;
     //alert(this.categoryId)
+  }
+
+  recieveKeyWord(keyWord:string){
+    this.keyWord=keyWord;
   }
 
 }

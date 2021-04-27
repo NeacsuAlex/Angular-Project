@@ -14,7 +14,7 @@ export class FiltrerService {
     return this.categories;
   }
 
-  getCategoryById(id:String):Category{
-    return this.categories.find((category)=>category.id==id);
+  getCategoryById(id: String): Category {
+    return this.categories.find((category) => category.id == id);
   }
 }

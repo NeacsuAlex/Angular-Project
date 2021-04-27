@@ -11,16 +11,23 @@ import { EventEmitter, Output } from "@angular/core";
 export class FilterComponent implements OnInit {
 
   categories: Category[];
-  @Output() emitSelectedFilter = new EventEmitter<string>();
-  
-  constructor(private filtrerService:FiltrerService) { }
+  keyWord: string;
+  @Output() emitSelectedFilterCategory = new EventEmitter<string>();
+  @Output() emitSelectedFilterKeyWord = new EventEmitter<string>();
+
+  constructor(private filtrerService: FiltrerService) { }
 
   ngOnInit(): void {
-    this.categories=this.filtrerService.geCategories();
+    this.categories = this.filtrerService.geCategories();
   }
 
-  selectFilter(id:string){
-    this.emitSelectedFilter.emit(id);
+  selectFilterCategory(id: string) {
+    this.emitSelectedFilterCategory.emit(id);
+  }
+
+  searchByKeyWord() {
+    console.log(this.keyWord);
+    this.emitSelectedFilterKeyWord.emit(this.keyWord);
   }
 
 }

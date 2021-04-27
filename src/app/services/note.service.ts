@@ -5,9 +5,9 @@ import { Note } from '../note/note.component';
   providedIn: 'root'
 })
 export class NoteService {
-  
-  notes: Note[]=[];
-  
+
+  notes: Note[] = [];
+
   constructor() { }
 
   serviceCall() {
@@ -18,12 +18,23 @@ export class NoteService {
     return this.notes;
   }
 
-  addNote(note:Note){
+  addNote(note: Note) {
     this.notes.push(note);
   }
 
-  getFilteredNotes(filteredID:string):Note[]
-  {
-    return this.notes.filter((note)=>note.category==filteredID);
+  getFilteredNotes(filteredID: string): Note[] {
+    return this.notes.filter((note) => note.category == filteredID);
+  }
+
+  getFilteredByKeyWordNotes(keyWord: string): Note[] {
+    return this.notes.filter((note) => (this.containsWord(note.description.split(" "), keyWord) || this.containsWord(note.title.split(" "), keyWord)));
+  }
+
+  containsWord(words: string[], keyWord: string): boolean {
+    for (let word of words) {
+      if (word==keyWord)
+        return true;
+    }
+    return false;
   }
 }

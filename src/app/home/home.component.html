@@ -1,5 +1,5 @@
-<app-filter (emitSelectedFilter)="receiveCategory($event)"></app-filter>
+<app-filter (emitSelectedFilterCategory)="receiveCategory($event)" (emitSelectedFilterKeyWord)="recieveKeyWord($event)"></app-filter>
 <div class="note-cards">
-<app-note [selectedCategory]="categoryId"></app-note>
+<app-note [selectedCategory]="categoryId" [keyWord]="keyWord"></app-note>
 <app-tools></app-tools>
 </div>
