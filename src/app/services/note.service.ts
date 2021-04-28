@@ -27,7 +27,7 @@ export class NoteService {
   }
 
   getFilteredByKeyWordNotes(keyWord: string): Note[] {
-    return this.notes.filter((note) => (this.containsWord(note.description.split(" "), keyWord) || this.containsWord(note.title.split(" "), keyWord)));
+    return this.notes.filter((note) => (this.containsWord(note.description.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').split(" "), keyWord) || this.containsWord(note.title.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').split(" "), keyWord)));
   }
 
   containsWord(words: string[], keyWord: string): boolean {

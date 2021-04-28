@@ -26,7 +26,7 @@ export class FilterComponent implements OnInit {
   }
 
   searchByKeyWord() {
-    console.log(this.keyWord);
+    //console.log(this.keyWord);
     this.emitSelectedFilterKeyWord.emit(this.keyWord);
   }
 
