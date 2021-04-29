@@ -27,14 +27,13 @@ export class NoteService {
   }
 
   getFilteredByKeyWordNotes(keyWord: string): Note[] {
-    return this.notes.filter((note) => (this.containsWord(note.description.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').split(" "), keyWord) || this.containsWord(note.title.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').split(" "), keyWord)));
+    return this.notes.filter((note) => (this.containsWord(note.description.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, ''), keyWord) || this.containsWord(note.title.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, ''), keyWord)));
   }
 
-  containsWord(words: string[], keyWord: string): boolean {
-    for (let word of words) {
-      if (word==keyWord)
+  containsWord(text: string, keyWord: string): boolean {
+    text.replace(/\s{2,}/g," ");
+    if (text.includes(keyWord))
         return true;
-    }
     return false;
-  }
+  } 
 }
