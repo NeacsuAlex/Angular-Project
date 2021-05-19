@@ -1,6 +1,8 @@
 .note-form {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     .mat-card-form{
         margin:10px;
     }

@@ -21,10 +21,10 @@
                     </button>
                 </div>
                 <div class="note-edit-button">
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="editNote(note)">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="deleteNote(note.id)">
                         <mat-icon> delete </mat-icon>
                     </button>
                 </div>

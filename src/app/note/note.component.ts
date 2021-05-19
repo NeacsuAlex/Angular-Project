@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { interval, Subject, Subscription } from "rxjs";
+import { switchMap, takeUntil } from 'rxjs/operators';
 import { NoteService } from '../services/note.service';
 
 @Component({
@@ -9,14 +12,17 @@ import { NoteService } from '../services/note.service';
 
 export class NoteComponent implements OnInit {
 
-  notes: Note[];
 
+  private unsubscribe$ = new Subject();
+  notes: Note[];
   private _selecteCategory: string;
 
   @Input()
   set selectedCategory(val: string) {
     this._selecteCategory = val;
-    this.notes = this.noteService.getFilteredNotes(this.selectedCategory);
+    this.noteService.getFilteredNotes(this.selectedCategory).pipe(takeUntil(this.unsubscribe$)).subscribe((notesFromServer) => {
+      this.notes = notesFromServer;
+    });
   }
   get selectedCategory(): string {
     return this._selecteCategory;
@@ -27,28 +33,50 @@ export class NoteComponent implements OnInit {
   @Input()
   set keyWord(val: string) {
     this._keyWord = val;
-    this.notes = this.noteService.getFilteredByKeyWordNotes(this.keyWord);
+    this.noteService.getFilteredByKeyWordNotes(this.keyWord).pipe(takeUntil(this.unsubscribe$)).subscribe((notesFromServer) => {
+      this.notes = notesFromServer;
+    });
   }
   get keyWord(): string {
     return this._keyWord;
   }
 
-  constructor(private noteService: NoteService) {
+  constructor(private noteService: NoteService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.notes = this.noteService.getNotes();
+    this.noteService.getNotes().pipe(takeUntil(this.unsubscribe$)).subscribe((notesFromServer) => {
+      this.notes = notesFromServer;
+    });
   }
 
   ngOnChanges(): void {
     //alert(this.selectedCategory);
     //this.notes=this.noteService.getFilteredNotes(this.selectedCategory);
   }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  deleteNote(noteId: string) {
+    this.noteService
+      .deleteNote(noteId)
+      .pipe(switchMap(() => this.noteService.getNotes()),takeUntil(this.unsubscribe$))
+      .subscribe((response) => (this.notes = response));
+  }
+
+  editNote(note: Note) {
+    this.noteService.changeNote(note);
+    this.router.navigateByUrl('editNote');
+  }
 }
 
 export interface Note {
-  id: string;
+  id?: string;
+  ownerId: string;
   title: string;
   description: string;
-  category: string;
+  categoryId: string;
 }

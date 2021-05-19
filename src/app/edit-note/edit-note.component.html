@@ -1,0 +1,24 @@
+<h1>Edit the note </h1>
+<div class="edit-note-form">
+<form>
+    <mat-form-field>
+    <input
+        matInput
+        name="inputNote"
+        [(ngModel)]="note.title"
+         />
+    </mat-form-field>
+</form>
+<mat-form-field>
+    <textarea matInput name="inputNote" [(ngModel)]="note.description"></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <select matNativeControl [(ngModel)]="note.categoryId" name="category">
+      <option *ngFor="let category of categories" [value]="category.id">
+        {{category.name}}
+      </option>
+    </select>
+  </mat-form-field>
+</div>
+<button mat-button (click)="editNote()">Edit</button>

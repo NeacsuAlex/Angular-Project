@@ -20,6 +20,9 @@ import { HighlightBoldDirective } from './highlight-bold.directive';
 import { RouterModule} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AddNoteComponent } from './add-note/add-note.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EditNoteComponent } from './edit-note/edit-note.component';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { AddNoteComponent } from './add-note/add-note.component';
     HighlightBoldDirective,
     HomeComponent,
     AddNoteComponent,
+    EditNoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ import { AddNoteComponent } from './add-note/add-note.component';
     MatFormFieldModule,
     FormsModule,
     MatCardModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
